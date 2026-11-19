@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="google" content="notranslate">
+  <meta name="description" content="أذكار المسلم - أذكار يومية وورد ومسبحة إلكترونية تعمل دون إنترنت.">
+  <title>أذكار المسلم | رفيق يومك</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="splash-screen" id="splashScreen" aria-label="شاشة افتتاح أذكار المسلم">
+    <div class="splash-half splash-half-right"></div><div class="splash-half splash-half-left"></div>
+    <div class="splash-glow"></div>
+    <div class="splash-content">
+      <div class="splash-ornament">۞</div>
+      <img class="splash-mushaf" src="golden-mushaf.webp" alt="مصحف مزخرف باللون الذهبي على حامل" />
+      <div class="splash-title">أذكار المسلم</div>
+      <div class="splash-subtitle">رفيق يومك إلى الطمأنينة</div>
+      <div class="splash-divider"><span>✦</span></div>
+      <button class="splash-enter" id="splashEnter">ابدأ رحلتك</button>
+    </div>
+    <div class="splash-footer">بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ</div>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="أذكار المسلم">
+      <span class="brand-icon">☪</span>
+      <span><b>أذكار المسلم</b><small>رفيق يومك إلى الطمأنينة</small></span>
+    </a>
+    <div class="top-actions">
+      <button id="themeBtn" class="icon-btn" aria-label="تغيير المظهر">☾</button>
+      <button id="installBtn" class="install-btn" hidden>تثبيت التطبيق</button>
+    </div>
+  </header>
+<main class="container">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">ابدأ يومك بذكر الله</span>
+        <h1>وَاذْكُرُوا اللَّهَ كَثِيرًا</h1>
+        <p>مساحة هادئة لأذكارك ووردك اليومي، في أي وقت ومن دون اتصال بالإنترنت.</p>
+        <div class="hero-buttons">
+          <button class="primary-btn" data-open="morning">ابدأ أذكار الصباح</button>
+          <button class="ghost-btn" data-open="evening">أذكار المساء</button>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><span>﷽</span><i>✦</i></div>
+    </section>
+
+    <section class="daily-strip">
+      <div><span class="strip-icon">🌿</span><div><b>وردك اليومي</b><small id="dailyProgress">0 من 5 أذكار مكتملة</small></div></div>
+      <div class="progress"><span id="dailyBar"></span></div>
+    </section>
+
+    <section class="section-heading">
+      <div><span class="eyebrow">اختر ما تريد</span><h2>الأقسام</h2></div>
+      <span class="date-label" id="todayDate"></span>
+    </section>
+
+    <section class="category-grid" id="categoryGrid">
+      <button class="category-card green" data-open="morning"><span>🌅</span><b>أذكار الصباح</b><small>بداية يوم مطمئنة</small></button>
+      <button class="category-card purple" data-open="evening"><span>🌙</span><b>أذكار المساء</b><small>اختم يومك بالذكر</small></button>
+      <button class="category-card blue" data-open="sleep"><span>🛏️</span><b>أذكار النوم</b><small>قبل أن تنام</small></button>
+      <button class="category-card orange" data-open="wake"><span>☀️</span><b>أذكار الاستيقاظ</b><small>عند بدء يومك</small></button>
+      <button class="category-card teal" data-open="prayer"><span>🤲</span><b>بعد الصلاة</b><small>أذكار دبر الصلاة</small></button>
+      <button class="category-card pink" data-open="daily"><span>📿</span><b>الورد اليومي</b><small>تابع إنجازك</small></button>
+      <button class="category-card gold" data-open="tasbeeh"><span>🔘</span><b>المسبحة</b><small>عداد إلكتروني</small></button>
+      <button class="category-card slate" data-open="misc"><span>🏡</span><b>أذكار متنوعة</b><small>المنزل والطعام والسفر</small></button>
+      <button class="category-card quran-card" data-open="quran"><span>📖</span><b>القرآن الكريم</b><small>قراءة واستماع وتسميع</small></button>
+      <button class="category-card prayer-times-card" data-open="prayerTimes"><span>🕌</span><b>مواقيت الصلاة</b><small>الموقع والعدّ التنازلي والأذان</small></button>
+      <button class="category-card gold" data-open="dorarQuran"><span>📕</span><b>مصحف الدرر PDF</b><small>مصحف وتفسير من المصدر الرسمي</small></button>
+      <button class="category-card purple" data-open="akhirah"><span>🌌</span><b>أهوال الآخرة</b><small>تذكير باليوم الآخر</small></button>
+      <button class="category-card teal" data-open="hadith"><span>📜</span><b>الأحاديث النبوية</b><small>الموسوعة الحديثية الموثقة</small></button>
+      <button class="category-card audio-library-card" data-open="audioLibrary"><span>🎧</span><b>مكتبة القرّاء والأذان</b><small>استمع واختر واحفظ صوتك</small></button>
+    </section>
+
+    <section class="content-panel" id="contentPanel" hidden>
+      <div class="panel-head">
+        <button class="back-btn" id="backBtn">→ رجوع</button>
+        <div><span class="eyebrow">ورد وأذكار</span><h2 id="panelTitle"></h2></div>
+        <span class="counter-pill" id="sectionCount"></span>
+      </div>
+      <div id="dhikrList" class="dhikr-list"></div>
+    </section>
+
+    <section class="content-panel tasbeeh-panel" id="tasbeehPanel" hidden>
+      <div class="panel-head"><button class="back-btn" id="tasbeehBack">→ رجوع</button><div><span class="eyebrow">مسبحتك الإلكترونية</span><h2>سبّح واذكر الله</h2></div></div>
+      <div class="tasbeeh-box">
+        <p id="tasbeehText">سُبْحَانَ اللَّهِ</p>
+        <div class="tasbeeh-number" id="tasbeehNumber">0</div>
+        <button class="tasbeeh-button" id="tasbeehTap">اضغط للتسبيح</button>
+        <div class="tasbeeh-controls"><button id="tasbeehReset" class="ghost-btn">إعادة العداد</button><button id="tasbeehNext" class="ghost-btn">الذكر التالي</button></div>
+      </div>
+    </section>
+
+
+    <section class="content-panel quran-panel" id="quranPanel" hidden>
+      <div class="panel-head">
+        <button class="back-btn" id="quranBack">→ رجوع</button>
+        <div><span class="eyebrow">كلام الله تعالى</span><h2>القرآن الكريم</h2></div>
+        <span class="counter-pill">114 سورة</span>
+      </div>
+      <div class="quran-tools">
+        <label>اختر السورة<select id="surahSelect"><option value="">جارٍ تحميل السور...</option></select></label>
+        <label>القارئ<select id="reciterSelect"><option value="">جارٍ تحميل القراء...</option></select></label>
+      </div>
+      <div class="quran-audio-wrap">
+        <div><b id="audioSurahName">اختر سورة للاستماع</b><small id="audioReciterName">اختر القارئ المفضل</small></div>
+        <audio id="quranAudio" controls preload="none"></audio>
+      </div>
+      <div class="quran-reading-head"><h3 id="readingTitle">اختر سورة للقراءة</h3><button id="fontPlus" class="small-tool">تكبير الخط +</button><button id="fontMinus" class="small-tool">تصغير الخط −</button></div>
+      <div id="quranStatus" class="quran-status">يتم تحميل فهرس السور من مصدر قرآني.</div>
+      <div id="versesBox" class="verses-box" aria-live="polite"></div>
+      <div class="tafsir-tools">
+        <div><span class="eyebrow">فهم وتدبّر</span><h3>تفسير الآيات</h3><p>اختر تفسيرًا ثم اعرض تفسير السورة المختارة، أو اضغط على آية لعرض تفسيرها.</p></div>
+        <label>مصدر التفسير<select id="tafsirSelect"><option value="ar.muyassar">التفسير الميسر</option><option value="ar.jalalayn">تفسير الجلالين</option></select></label>
+        <button id="loadTafsir" class="primary-btn">عرض تفسير السورة</button>
+      </div>
+      <div id="tafsirBox" class="tafsir-box" aria-live="polite">اختر سورة ثم اضغط «عرض تفسير السورة».</div>
+      <div class="memorize-box">
+        <div><span class="eyebrow">اختبر حفظك</span><h3>اختبار التسميع</h3><p>اختر نوع الاختبار، ثم ابدأ التسميع بالميكروفون.</p></div>
+        <div class="test-mode-row"><label>نوع الاختبار<select id="testMode"><option value="normal">اختبار عادي</option><option value="tajweed">اختبار بالتجويد والأحكام (إرشادي)</option></select></label><button id="startMemorize" class="primary-btn">ابدأ الاختبار</button></div>
+        <div id="memorizeArea" hidden>
+          <div class="memorize-verse" id="memorizePrompt">اضغط على بدء الاختبار</div>
+          <div class="memorize-actions"><button id="showHint" class="ghost-btn">إظهار الإجابة</button><button id="listenBtn" class="primary-btn">🎙️ ابدأ التسميع</button><button id="speakAnswer" class="ghost-btn">🔊 اسمع الإجابة</button></div>
+          <p id="speechResult" class="speech-result">سيستمع التطبيق إلى قراءتك ويقارن الكلمات بشكل تقريبي.</p>
+          <div id="tajweedGuide" class="tajweed-guide" hidden>وضع الأحكام يعرض تذكيرات تعليمية، لكنه لا يستطيع إصدار حكم موثوق على التجويد أو المخارج آليًا.</div>
+        </div>
+      </div>
+      <p class="quran-disclaimer">تظهر البسملة في بداية السور كسطر مستقل غير مرقّم، ولا تظهر في بداية سورة التوبة. وفي سورة الفاتحة حُوفظ على نص الآيات وترقيم مصحف حفص كما هو؛ لأن البسملة معدودة آيةً في الترقيم الشائع لها. النص والتلاوات تُحمّل من خدمات خارجية عند الاتصال بالإنترنت. نتيجة التعرف الصوتي مساعدة أولية فقط، ولا تقيّم التجويد أو مخارج الحروف ولا تُغني عن التسميع على معلّم متقن.</p>
+    </section>
+
+
+    <section class="content-panel prayer-panel" id="prayerPanel" hidden>
+      <div class="panel-head"><button class="back-btn" id="prayerBack">→ رجوع</button><div><span class="eyebrow">صلاتك في وقتها</span><h2>مواقيت الصلاة والتنبيهات</h2></div></div>
+      <div class="location-tools">
+        <button id="useLocation" class="primary-btn">📍 تحديد موقعي تلقائيًا</button>
+        <label>أو اختر المحافظة والمدينة<select id="citySelect"><option value="27.1801,31.1837|أسيوط">أسيوط</option><option value="30.0444,31.2357|القاهرة">القاهرة</option><option value="31.2001,29.9187|الإسكندرية">الإسكندرية</option><option value="25.6872,32.6396|الأقصر">الأقصر</option><option value="24.0889,32.8998|أسوان">أسوان</option><option value="30.7865,31.0004|المنوفية">المنوفية</option><option value="30.5877,31.502">الشرقية</option><option value="31.0409,31.3785|الدقهلية">الدقهلية</option><option value="30.5965,32.2715|الإسماعيلية">الإسماعيلية</option><option value="31.2653,32.3019|بورسعيد">بورسعيد</option><option value="29.9668,32.5498|السويس">السويس</option><option value="30.0131,31.2089|الجيزة">الجيزة</option><option value="28.1099,30.7503|المنيا">المنيا</option><option value="26.5591,31.6957|سوهاج">سوهاج</option><option value="26.1551,32.716|قنا">قنا</option><option value="31.4175,31.8144|دمياط">دمياط</option><option value="31.1321,33.8033|شمال سيناء">شمال سيناء</option><option value="30.0131,32.1|جنوب سيناء">جنوب سيناء</option><option value="31.3543,27.2373|مطروح">مطروح</option><option value="29.3084,30.8428|الفيوم">الفيوم</option><option value="30.0131,30.7|البحيرة">البحيرة</option><option value="30.6043,32.2723|القليوبية">القليوبية</option><option value="30.0131,31.2|الغربية">الغربية</option><option value="30.0131,31.2|كفر الشيخ">كفر الشيخ</option></select></label>
+      </div>
+      <p id="prayerLocationLabel" class="quran-status">الموقع المحدد: أسيوط — طريقة الحساب: الهيئة المصرية العامة للمساحة.</p>
+      <div class="next-prayer-box"><small>الصلاة القادمة</small><strong id="nextPrayerName">جارٍ تحديد الصلاة القادمة</strong><div id="prayerCountdown" class="prayer-countdown">--:--:--</div><span id="nextPrayerAt"></span></div>
+      <div class="prayer-grid" id="prayerGrid"><div class="prayer-time-card">جارٍ تحميل المواقيت...</div></div>
+      <div class="adhan-settings">
+        <h3>إعدادات الأذان والتنبيه</h3>
+        <label class="check-line"><input type="checkbox" id="adhanEnabled"> تفعيل تنبيهات الصلاة</label>
+        <label class="check-line"><input type="checkbox" id="reminderEnabled" checked> تنبيه قبل الأذان بعشر دقائق</label>
+        
+        <label>القارئ الذي تفضله<select id="adhanVoice"><option>ناصر القطامي</option><option>مشاري العفاسي</option><option>ماهر المعيقلي</option><option>عبدالرحمن السديس</option><option>قارئ آخر</option></select></label>
+        <label>ارفع تسجيل الأذان الخاص بالقارئ الذي اخترته<input type="file" id="adhanFile" accept="audio/*"></label>
+        <audio id="adhanPreview" controls hidden></audio>
+        <div class="adhan-actions"><button id="enableNotifications" class="primary-btn">السماح بإشعارات الجهاز</button><button id="testAdhan" class="ghost-btn">تجربة الصوت</button></div>
+        <p class="quran-disclaimer">يمكنك اختيار تسجيل الأذان الذي تفضله من جهازك، مثل تسجيل بصوت ناصر القطامي أو مشاري العفاسي إذا كان متوفرًا لديك. لا نضع تسجيلات منسوبة إلى القراء دون مصدر موثوق. يلزم إبقاء التطبيق مفتوحًا أو مثبتًا مع السماح بالإشعارات؛ وقد يقيّد النظام تشغيل الصوت تلقائيًا في الخلفية.</p>
+      </div>
+    </section>
+
+    <section class="content-panel audio-library-panel" id="audioLibraryPanel" hidden>
+      <div class="panel-head"><button class="back-btn" id="audioLibraryBack">→ رجوع</button><div><span class="eyebrow">مكتبة الصوتيات</span><h2>القرّاء والأذان</h2></div><span class="counter-pill" id="audioReciterCount">قائمة القراء</span></div>
+      <div class="audio-feature-banner"><div class="audio-feature-icon">♫</div><div><b>استمع إلى تلاوات القرآن الكريم</b><p>ابحث عن القارئ، اختر المصحف، ثم شغّل السورة أو احفظها للاستماع دون اتصال.</p></div></div>
+      <div class="audio-library-tabs"><button class="audio-tab active" data-audio-tab="reciters">القرّاء والتلاوات</button><button class="audio-tab" data-audio-tab="adhan">أصوات الأذان</button></div>
+      <div id="recitersAudioView">
+        <label class="audio-search">ابحث عن قارئ أو شيخ<input id="reciterSearch" type="search" placeholder="مثال: مشاري العفاسي، الحصري، المنشاوي..."></label>
+        <div class="audio-library-layout"><div class="reciter-list-wrap"><div class="audio-list-heading"><b>قائمة القرّاء</b><small id="reciterListHint">تُحمّل القائمة عند الاتصال أول مرة</small></div><div id="reciterCards" class="reciter-cards"><div class="audio-empty">اضغط «تحميل قائمة القرّاء» لعرض القائمة الفعلية.</div></div><button id="loadRecitersBtn" class="primary-btn audio-load-btn">تحميل قائمة القرّاء</button></div>
+          <div class="audio-player-card"><div class="audio-player-art">📖</div><span class="eyebrow">مشغل التلاوات</span><h3 id="libraryNowPlaying">لم يتم اختيار قارئ بعد</h3><p id="libraryNowSub">اختر قارئًا من القائمة لعرض المصاحف المتاحة.</p><label>المصحف<select id="libraryMoshafSelect"><option value="">اختر قارئًا أولًا</option></select></label><label>السورة<select id="librarySurahSelect"><option value="1">1. الفاتحة</option></select></label><audio id="libraryAudio" controls preload="none"></audio><div class="audio-player-actions"><button id="playLibraryAudio" class="primary-btn">▶ تشغيل التلاوة</button><button id="saveLibraryAudio" class="ghost-btn">⬇ حفظ السورة</button></div><p id="audioSaveStatus" class="audio-status">التشغيل يحتاج اتصالًا أول مرة. احفظ السورة لتجربتها دون إنترنت لاحقًا.</p></div>
+        </div>
+      </div>
+      <div id="adhanAudioView" hidden>
+        <div class="adhan-visual-card"><div class="adhan-moon">☾</div><div><span class="eyebrow">أصوات الأذان</span><h3>اختر الأذان الذي تفضله</h3><p>أضف تسجيلًا صوتيًا من جهازك، وسيحفظه التطبيق محليًا لتشغيله دون إنترنت.</p></div></div>
+        <div class="adhan-upload-card"><label class="adhan-upload-zone"> <span>＋</span><b>اختر ملف الأذان من جهازك</b><small>MP3 أو M4A أو WAV</small><input type="file" id="libraryAdhanFile" accept="audio/*"></label><div class="adhan-player-preview"><b id="libraryAdhanName">لم يتم اختيار تسجيل بعد</b><audio id="libraryAdhanAudio" controls></audio><small id="libraryAdhanStatus">بعد اختيار الملف سيُحفظ على هذا الجهاز.</small></div></div>
+        <div class="adhan-note">يمكن إضافة تسجيلات متعددة لاحقًا. لا توجد تسجيلات منسوبة إلى مؤذن أو شيخ دون التحقق من مصدرها.</div>
+      </div>
+    </section>
+
+    <section class="content-panel resource-panel" id="resourcePanel" hidden>
+      <div class="panel-head"><button class="back-btn resource-back">→ رجوع</button><div><span class="eyebrow">مصادر موثوقة</span><h2 id="resourceTitle"></h2></div></div>
+      <div id="resourceContent" class="resource-content"></div>
+    </section>
+
+    <section class="note-card">
+      <span>💚</span><div><b>تذكير لطيف</b><p>اقرأ الأذكار بتدبّر وطمأنينة، واختر ما تستطيع المواظبة عليه.</p></div>
+    </section>
+  </main>
+
+  <footer><b>أذكار المسلم</b><span>اللهم اجعل ألسنتنا عامرة بذكرك</span><small>نسخة أولية قابلة للتطوير — راجع النصوص والأعداد مع مصدر موثوق قبل اعتمادها للنشر.</small></footer>
+  <script src="app.js"></script>
+</body>
+</html>
